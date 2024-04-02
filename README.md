@@ -4,7 +4,15 @@ Most of my contribution is based on existing analysis, including the Prefix trie
 
 Thanks to @q3k and @smx-smx for their contributions.
 
-I succeed in recoverying some structures and function prototypes:
+Notice: 
+
+> I'm not an expert in malware analysis and computer security, and it's the first time for me to analyze such big programs. Most of the code logic is merely guessed through static analysis in IDA. And how the program setups hooks and what it does is still unclear in this repo.
+>
+> I also setup a dynamic debug environment, please checkout the gdb.md.
+>
+> Please feel free to open an issue if you find any problem.
+
+I manage to recovery some structures and function prototypes:
 
 ```c
 __int64 __fastcall process_elf_seg(struct_elf_info *a1, unsigned __int64 a2, unsigned __int64 a3, __int64 ptflags);
@@ -28,6 +36,8 @@ _BOOL8 __fastcall process_shared_libraries_map(Elf64_Ehdr **a1, parse_lib *lib);
 __int64 __fastcall parse_elf_init(struc_init22 *init);
 __int64 __fastcall backdoor_init_stage2(rootkit_ctx *ctx, _QWORD *unused, _QWORD *cpuid_got_ptr, struc_gots *gots);
 ```
+
+The corresponding symbol address is available in the .lst file.
 
 ## Structures
 
